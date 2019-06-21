@@ -108,6 +108,8 @@ $ sudo yum install golang make gcc zip mercurial krb5-devel bsdtar bc rsync bind
 
 ==== Configuring a Development Environment
 
+Before make the source,you must setup CentOS-SCLo-rh.repo, a reference: https://blog.csdn.net/HD2killers/article/details/82728775. 
+
 1. Create a Go workspace directory: +
 +
 ----
