@@ -124,6 +124,8 @@ s2i create centos7 images/deployer
 s2i create centos7 images/tests
 ----
 
+It's recommanded to update golang, a reference:https://tecadmin.net/install-go-on-centos/.
+
 1. Create a Go workspace directory: +
 +
 ----
