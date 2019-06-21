@@ -20,7 +20,7 @@ import (
 	"github.com/openshift/origin/pkg/security/apiserver/registry/podsecuritypolicysubjectreview"
 	"github.com/openshift/origin/pkg/security/apiserver/registry/rangeallocations"
 	sccstorage "github.com/openshift/origin/pkg/security/apiserver/registry/securitycontextconstraints/etcd"
-	oscc "github.com/openshift/origin/pkg/security/apiserver/securitycontextconstraints"
+	"k8s.io/kubernetes/openshift-kube-apiserver/admission/security/securitycontextconstraints/sccmatching"
 )
 
 type ExtraConfig struct {
@@ -107,7 +107,7 @@ func (c *completedConfig) newV1RESTStorage() (map[string]rest.Storage, error) {
 	}
 
 	sccStorage := sccstorage.NewREST()
-	sccMatcher := oscc.NewDefaultSCCMatcher(c.ExtraConfig.SecurityInformers.Security().V1().SecurityContextConstraints().Lister(), c.ExtraConfig.Authorizer)
+	sccMatcher := sccmatching.NewDefaultSCCMatcher(c.ExtraConfig.SecurityInformers.Security().V1().SecurityContextConstraints().Lister(), c.ExtraConfig.Authorizer)
 	podSecurityPolicyReviewStorage := podsecuritypolicyreview.NewREST(
 		sccMatcher,
 		c.ExtraConfig.KubeInformers.Core().V1().ServiceAccounts().Lister(),
