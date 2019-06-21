@@ -113,7 +113,15 @@ Then you must create base image directory, using command:
 +
 ----
 cd origin 
-s2i create centos7 base
+s2i create centos7 images/base
+s2i create centos7 images/hypershift
+s2i create centos7 images/template-service-broker
+s2i create centos7 images/hyperkube
+s2i create centos7 images/sdn
+s2i create centos7 images/cli
+s2i create centos7 images/recycler
+s2i create centos7 images/deployer
+s2i create centos7 images/tests
 ----
 
 1. Create a Go workspace directory: +
